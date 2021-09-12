@@ -20,28 +20,38 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res) {
   
   // collect form variable
-  // var session = req.session;
-  var username = req.body.username;
+  var email = req.body.email;
   var password = req.body.password;
 
-  // retreive data from DB and login user
-  if(username && password){
-      connection.query("SELECT * FROM accounts WHERE username = ? and password = ?", [username, password], function(error, results, fields){
-      console.log("the result is "+JSON.stringify(results))
-      if(results){
-          if (results.length > 0) {
-            req.session.loggedin = true;
-            req.session.username = username;
-            res.redirect("/home");
-          } else{
-             res.render( 'auth', {title: 'Incorrect username or password'});
-          }
-        res.end()
-      }else{
-        res.render( 'auth', {title: 'Database connection Error: Check system setup'});
-        res.end();
-      }
-    });
+  // check if email and password were submitted
+  if(email && password){
+
+      // fetch user record from db matching email and password
+      connection.query("SELECT * FROM login_users WHERE email = ? AND password = ? ", [email, password], function(error, results, fields){
+      
+        if(results){
+
+            // if "accstatus" is "on" in DB set login to true"
+            if(results[0].accstatus == "on") {
+              req.session.loggedin = true;
+              req.session.email = email;
+              res.redirect("/home");
+
+             // if accstatus is not "on" verify email
+            }else if(results[0].accstatus != "on"){
+              res.render( 'auth', {title: 'Verify your email to login'});
+              res.end()
+
+            // or inform user of incorrect login details
+            }else{
+              res.render( 'auth', {title: 'Incorrect login details'});
+              res.end()
+            }
+        }else{
+          res.render( 'auth', {title: 'Database connection Error: Check system setup'});
+          res.end();
+        }
+      });
 
   } else{
       res.send('Please enter Username and Password');

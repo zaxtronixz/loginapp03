@@ -16,7 +16,7 @@
 			padding: 20px 0 20px 0;
 		}
 		.login-form input[type="password"],
-		.login-form input[type="text"] {
+		.login-form input[type="email"] {
 			width: 100%;
 			padding: 15px;
 			border: 1px solid #dddddd;
@@ -39,7 +39,7 @@
 		<div class="login-form">
 			 <h3><%= title %></h3>
 			<form action="auth" method="POST">
-				<input type="text" name="username" placeholder="Username" required>
+				<input type="email" name="email" placeholder="Email" required>
 				<input type="password" name="password" placeholder="Password" required>
 				<input type="submit">
 			</form>

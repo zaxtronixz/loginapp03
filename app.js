@@ -12,6 +12,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var homeRoute = require('./routes/home');
+var newaccRoute = require('./routes/newacc');
+var sendmailRoute = require('./routes/sendmail');
+var verifyRoute = require('./routes/verify');
 
 
 var app = express();
@@ -37,6 +40,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/home', homeRoute);
+app.use('/newacc', newaccRoute);
+app.use('/sendmail', sendmailRoute);
+app.use('/verify/', verifyRoute);
 
 
 

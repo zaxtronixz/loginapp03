@@ -7,7 +7,7 @@ var router = express.Router();
 /////////////////////////////////////////////
 router.get('/', function(req, res, next) {
   if(req.session.loggedin){
-      res.send('Finally home');
+      res.render('dashb');
   }else{
     res.render('index', { title: 'You are not logged in'})
   }

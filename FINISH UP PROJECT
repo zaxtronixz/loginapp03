@@ -1,0 +1,52 @@
+FINISH UP PROJECT
+
+1. create login profile
+2. recover mail
+3. load asset by form entry
+4. gaglink testing
+5. time stamp of activities
+6. include description / keys on graph output
+7. export report as pdf
+8. record video of process
+9. adjust conclusion
+10. include gaglink test
+
+
+
+check book:
+===============
+sn // task // status // time stamp
+
+1. // create login // not completed // 07-09-2021
+
+
+
+// DATABASE MANIPULATION
+//////////////////////////////////////////////////////////////////////
+
+== mysql> use loginapp-db;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+== mysql> select * from login_users;
+
++----+-----------+----------+-----------------------------+-----------+---------------------+----------+
+| id | firstname | lastname | email                       | accstatus | reg_date            | password |
++----+-----------+----------+-----------------------------+-----------+---------------------+----------+
+|  1 | Zakariyau | Muhammad | zax20yau@yahoo.com          | off       | 2021-09-09 17:33:04 | 1234     |
+|  2 | Zakariyau | Muhammad | zax20yau@gmail.com          | off       | 2021-09-09 17:41:10 | 1234     |
+|  3 | Zakariyau | Muhammad | zm161047@students.euc.ac.cy | off       | 2021-09-09 17:45:26 | 1234     |
++----+-----------+----------+-----------------------------+-----------+---------------------+----------+
+3 rows in set (0.00 sec)
+
+== mysql> DELETE FROM login_users WHERE accstatus = "off";
+Query OK, 3 rows affected (0.01 sec)
+
+== mysql> ALTER TABLE login_users AUTO_INCREMENT = 1;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+== mysql> select * from login_users;
+Empty set (0.00 sec)

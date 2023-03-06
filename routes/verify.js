@@ -39,4 +39,24 @@ router.get('/', function(req, res, next) {
   
 });
 
+
+/////// Send verification form /////////////////////////////
+router.get('/veriform', function(req, res, next) {
+    // display verification form
+
+
+})
+
+
+/////// Send verification link /////////////////////////////
+router.get('/verilink', function(req, res, next) {
+    // display verification fo
+
+
+})
+
+
+
+
+
 module.exports = router

@@ -9,9 +9,9 @@ var mysql = require('mysql');
 ///////////////////////////////
  var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'root',
+  user     : 'loguser',
   password : '',
-  database : 'loginapp-db'
+  database : 'loginapp_db'
 });
 
 

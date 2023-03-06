@@ -20,7 +20,7 @@ sn // task // status // time stamp
 1. // create login // not completed // 07-09-2021
 
 
-
+//////////////////////////////////////////////////////////////////////
 // DATABASE MANIPULATION
 //////////////////////////////////////////////////////////////////////
 
@@ -50,3 +50,40 @@ Records: 0  Duplicates: 0  Warnings: 0
 
 == mysql> select * from login_users;
 Empty set (0.00 sec)
+
+
+///////////////////////////////////////////////////////////////////
+/// GIT FOR UNSETTING URL AND SETTING NEW ONE
+///////////////////////////////////////////////////////////////////
+
+1. create repo on github cloud
+
+2. copy url of new git repo
+
+3. remove old url of remote git repo
+//git remote rm origin
+
+4. initialize git repo
+// git init
+
+5. add the changes in the repo
+// git add .
+
+6. commit changes added
+// git commit -m "message in here"
+
+7. add the changes as branch
+// git branch -M branch-name-here
+
+8. set the new remote url
+// git remote add origin url-of-remote-github-repo-here
+
+9. push to github remote repo
+// git push --set-upstream origin main 
+
+
+
+
+
+
+

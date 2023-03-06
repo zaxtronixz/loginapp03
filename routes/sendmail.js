@@ -41,7 +41,7 @@ router.get('/', function(req, res, next) {
   var name = firstname + " " + lastname; 
 
   // create verification token
-  var rand=Math.floor((Math.random() * 9000000000000000000) + 3125678902345);
+  var rand=Math.floor((Math.random() * 9000000) + 6000000);
   var host=req.get('host');
   var link="http://"+req.get('host')+"/verify?id="+rand;
 
@@ -72,7 +72,7 @@ router.get('/', function(req, res, next) {
 
     // if mail sending succeeds display newacc page with message
     }else{
-      res.render( 'newacc', {remark: 'Kindly click the verification link sent to your email to complete your registration'});
+      res.render( 'auth', {title: 'Kindly click the verification link sent to your email to complete your registration'});
       res.end();
     }
   });
